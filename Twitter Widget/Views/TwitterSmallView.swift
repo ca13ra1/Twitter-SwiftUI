@@ -9,22 +9,20 @@ import Foundation
 import SwiftUI
 
 struct TwitterSmallView : View {
-    @Environment(\.colorScheme) var colorScheme
     let twitter: Twitter
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack(spacing: 5) {
                 VStack {
-                    if let url = URL(string:twitter?.first?.user.profileImageURLHTTPS ?? "") {
-                        let imageData = try? Data(contentsOf: url)
-                        if let image = UIImage(data: imageData ?? Data()) {
-                            Image(uiImage: image)
-                                .resizable()
-                                .interpolation(.high)
-                                .frame(width: 37, height: 37)
-                                .cornerRadius(18.5)
-                        }
+                    if let url = URL(string:twitter?.first?.user.profileImageURLHTTPS ?? ""),
+                       let imageData = try? Data(contentsOf: url),
+                       let image = UIImage(data:imageData) {
+                        Image(uiImage:image)
+                            .resizable()
+                            .interpolation(.high)
+                            .frame(width: 37, height: 37)
+                            .cornerRadius(18.5)
                     }
                 }
                 .frame(minWidth: 0, maxWidth: 40, alignment: .leading)
@@ -37,8 +35,7 @@ struct TwitterSmallView : View {
                             .lineLimit(1)
                         if twitter?.first?.user.verified ?? false {
                             VerifiedShape()
-                                //rgb(29, 161, 242)
-                                .fill(colorScheme == .light ? Color(UIColor(red: 29/255, green: 161/255, blue: 242/255, alpha: 1)) : Color.white)
+                                .fill(Color("twitter"))
                                 .frame(width: 16, height: 16)
                         }
                     }

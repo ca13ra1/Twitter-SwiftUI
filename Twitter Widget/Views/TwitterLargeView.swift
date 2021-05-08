@@ -9,7 +9,6 @@ import Foundation
 import SwiftUI
 
 struct TwitterLargeView : View {
-    @Environment(\.colorScheme) var colorScheme
     let twitter: Twitter
     
     var body: some View {
@@ -18,15 +17,14 @@ struct TwitterLargeView : View {
                 VStack(alignment: .leading, spacing: 10) {
                     HStack(spacing: 1) {
                         VStack {
-                            if let url = URL(string:twitter.user.profileImageURLHTTPS) {
-                                let imageData = try? Data(contentsOf: url)
-                                if let image = UIImage(data: imageData ?? Data()) {
-                                    Image(uiImage: image)
-                                        .resizable()
-                                        .interpolation(.high)
-                                        .frame(width: 34, height: 34)
-                                        .cornerRadius(17)
-                                }
+                            if let url = URL(string:twitter.user.profileImageURLHTTPS),
+                               let imageData = try? Data(contentsOf: url),
+                               let image = UIImage(data:imageData) {
+                                Image(uiImage:image)
+                                    .resizable()
+                                    .interpolation(.high)
+                                    .frame(width: 34, height: 34)
+                                    .cornerRadius(17)
                             }
                         }
                         .frame(minWidth: 0, maxWidth: 40, alignment: .leading)
@@ -39,8 +37,7 @@ struct TwitterLargeView : View {
                                     .lineLimit(1)
                                 if twitter.user.verified {
                                     VerifiedShape()
-                                        //rgb(29, 161, 242)
-                                        .fill(colorScheme == .light ? Color(UIColor(red: 29/255, green: 161/255, blue: 242/255, alpha: 1)) : Color.white)
+                                        .fill(Color("twitter"))
                                         .frame(width: 16, height: 16)
                                 }
                                 Spacer()
