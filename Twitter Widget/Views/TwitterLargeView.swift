@@ -14,7 +14,7 @@ struct TwitterLargeView : View {
     var body: some View {
         VStack(spacing: 0) {
             ForEach(twitter ?? [], id:\.id) { twitter in
-                VStack(alignment: .leading, spacing: 10) {
+                VStack(alignment: .leading, spacing: 3) {
                     HStack(spacing: 1) {
                         VStack {
                             if let url = URL(string:twitter.user.profileImageURLHTTPS),
@@ -32,7 +32,7 @@ struct TwitterLargeView : View {
                         VStack(alignment: .leading, spacing: 1) {
                             HStack(spacing: 4){
                                 Text(twitter.user.name)
-                                    .font(.caption)
+                                    .font(.footnote)
                                     .fontWeight(.bold)
                                     .lineLimit(1)
                                 if twitter.user.verified {
@@ -42,30 +42,30 @@ struct TwitterLargeView : View {
                                 }
                                 Spacer()
                                 Text(relativeDate(twitter.createdAt))
-                                    .font(.caption)
+                                    .font(.footnote)
                                     .foregroundColor(.secondary)
                                     .lineLimit(1)
                             }
                             HStack {
                                 Text("@\(twitter.user.screenName)")
-                                    .font(.caption)
+                                    .font(.footnote)
                                     .lineLimit(1)
                                 Spacer()
                                 HStack {
                                     HStack(spacing: 2){
                                         Text(Image(systemName: "arrow.2.squarepath"))
                                             .foregroundColor(Color.green)
-                                            .font(.caption)
+                                            .font(.footnote)
                                             .fontWeight(.bold)
                                         Text("\(Int(twitter.retweetCount).abbreviated)")
-                                            .font(.caption)
+                                            .font(.footnote)
                                     }
                                     HStack(spacing: 2) {
                                         Image(systemName: "heart.fill")
                                             .foregroundColor(Color.red)
-                                            .font(.caption)
+                                            .font(.footnote)
                                         Text("\(Int(twitter.favoriteCount).abbreviated)")
-                                            .font(.caption)
+                                            .font(.footnote)
                                     }
                                 }
                             }
@@ -74,7 +74,7 @@ struct TwitterLargeView : View {
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight:40)
                     HStack(alignment: .top) {
                         Text(twitter.text)
-                            .font(.caption)
+                            .font(.footnote)
                     }
                 }
                 .frame(minHeight: 0, maxHeight:.infinity)

@@ -30,7 +30,7 @@ struct TwitterMediumView : View {
                 VStack(alignment: .leading, spacing: 1) {
                     HStack(spacing: 4) {
                         Text(twitter?.first?.user.name ?? "")
-                            .font(.footnote)
+                            .font(.subheadline)
                             .fontWeight(.bold)
                             .lineLimit(1)
                         if twitter?.first?.user.verified ?? false {
@@ -40,30 +40,30 @@ struct TwitterMediumView : View {
                         }
                         Spacer()
                         Text(relativeDate(twitter?.first?.createdAt ?? ""))
-                            .font(.caption)
+                            .font(.subheadline)
                             .foregroundColor(.secondary)
                             .lineLimit(1)
                     }
                     HStack {
                         Text("@\(twitter?.first?.user.screenName ?? "")")
-                            .font(.footnote)
+                            .font(.subheadline)
                             .lineLimit(1)
                         Spacer()
                         HStack {
                             HStack(spacing: 2){
                                 Text(Image(systemName: "arrow.2.squarepath"))
                                     .foregroundColor(Color.green)
-                                    .font(.caption)
+                                    .font(.footnote)
                                     .fontWeight(.bold)
                                 Text("\(Int(twitter?.first?.retweetCount ?? 0).abbreviated)")
-                                    .font(.caption)
+                                    .font(.subheadline)
                             }
                             HStack(spacing: 2) {
                                 Image(systemName: "heart.fill")
                                     .foregroundColor(Color.red)
-                                    .font(.caption)
+                                    .font(.subheadline)
                                 Text("\(Int(twitter?.first?.favoriteCount ?? 0).abbreviated)")
-                                    .font(.caption)
+                                    .font(.subheadline)
                             }
                         }
                     }
@@ -72,7 +72,7 @@ struct TwitterMediumView : View {
             .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight:40)
             HStack(alignment: .top) {
                 Text(twitter?.first?.text ?? "")
-                    .font(.footnote)
+                    .font(.callout)
                     .lineLimit(nil)
             }
             .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight:.infinity, alignment: .topLeading)
