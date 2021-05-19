@@ -47,7 +47,7 @@ struct TwitterSmallView : View {
             }
             HStack(alignment: .top) {
                 Text(twitter?.first?.text ?? "")
-                    .font(.subheadline)
+                    .font(.footnote)
                     .lineLimit(nil)
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight:.infinity, alignment: .topLeading)
             }

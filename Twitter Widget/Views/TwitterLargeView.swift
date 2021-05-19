@@ -14,7 +14,7 @@ struct TwitterLargeView : View {
     var body: some View {
         VStack(spacing: 0) {
             ForEach(twitter ?? [], id:\.id) { twitter in
-                VStack(alignment: .leading, spacing: 3) {
+                VStack(alignment: .leading, spacing: 10) {
                     HStack(spacing: 1) {
                         VStack {
                             if let url = URL(string:twitter.user.profileImageURLHTTPS),
