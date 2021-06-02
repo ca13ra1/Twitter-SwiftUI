@@ -14,7 +14,7 @@ private var cancellables = Set<AnyCancellable>()
 
 struct Provider: IntentTimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: ConfigurationIntent(), twitter:[])
+        SimpleEntry(date: Date(), configuration: ConfigurationIntent(), twitter:Array(repeating: TwitterEndpoint(createdAt: "2020-06-24T16:28:14.000Z", text: "if you put it in your Twitter bio it must be true", user: User(name: "Twitter", screenName: "Twitter", profileImageURLHTTPS: "https://pbs.twimg.com/profile_images/1354479643882004483/Btnfm47p_400x400.jpg", verified: true), retweetCount: 10000, favoriteCount: 1000), count: 4))
     }
     
     func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (SimpleEntry) -> ()) {
@@ -124,7 +124,8 @@ struct Twitter_Widget: Widget {
 
 struct Twitter_Widget_Previews: PreviewProvider {
     static var previews: some View {
-        Twitter_WidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent(), twitter: []))
+        Twitter_WidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent(), twitter: Array(repeating: TwitterEndpoint(createdAt: "2020-06-24T16:28:14.000Z", text: "if you put it in your Twitter bio it must be true", user: User(name: "Twitter", screenName: "Twitter", profileImageURLHTTPS: "https://pbs.twimg.com/profile_images/1354479643882004483/Btnfm47p_400x400.jpg", verified: true), retweetCount: 10000, favoriteCount: 1000), count: 4)))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
+            .redacted(reason: .placeholder)
     }
 }
