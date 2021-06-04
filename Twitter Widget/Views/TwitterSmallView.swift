@@ -30,7 +30,7 @@ struct TwitterSmallView : View {
                 VStack(alignment: .leading, spacing: 0) {
                     HStack(spacing: 3) {
                         Text(twitter?.first?.user.name ?? "")
-                            .font(.footnote)
+                            .font(.caption)
                             .fontWeight(.bold)
                             .lineLimit(1)
                         if twitter?.first?.user.verified ?? false {
@@ -40,35 +40,35 @@ struct TwitterSmallView : View {
                         }
                     }
                     Text("@\(twitter?.first?.user.screenName ?? "")")
-                        .font(.footnote)
+                        .font(.caption)
                         .lineLimit(1)
                 }
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight:30, alignment: .leading)
             }
             HStack(alignment: .top) {
                 Text(twitter?.first?.text ?? "")
-                    .font(.footnote)
+                    .font(.caption)
                     .lineLimit(nil)
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight:.infinity, alignment: .topLeading)
             }
             VStack {
                 HStack {
-                    HStack(spacing: 2){
+                    HStack(spacing: 1){
                         Text(Image(systemName: "arrow.2.squarepath"))
                             .foregroundColor(Color.green)
                             .font(.footnote)
                             .fontWeight(.bold)
                         Text("\(Int(twitter?.first?.retweetCount ?? 0).abbreviated)")
-                            .font(.footnote)
+                            .font(.caption)
                     }
                     .frame(minWidth: 0, maxWidth: .infinity)
                     
-                    HStack(spacing: 2) {
+                    HStack(spacing: 1) {
                         Image(systemName: "heart.fill")
                             .foregroundColor(Color.red)
                             .font(.subheadline)
                         Text("\(Int(twitter?.first?.favoriteCount ?? 0).abbreviated)")
-                            .font(.footnote)
+                            .font(.caption)
                     }
                     .frame(minWidth: 0, maxWidth: .infinity)
                 }

@@ -42,7 +42,7 @@ struct TwitterLargeView : View {
                                 }
                                 Spacer()
                                 Text(relativeDate(twitter.createdAt))
-                                    .font(.footnote)
+                                    .font(.caption)
                                     .foregroundColor(.secondary)
                                     .lineLimit(1)
                             }
@@ -52,7 +52,7 @@ struct TwitterLargeView : View {
                                     .lineLimit(1)
                                 Spacer()
                                 HStack {
-                                    HStack(spacing: 2){
+                                    HStack(spacing: 1){
                                         Text(Image(systemName: "arrow.2.squarepath"))
                                             .foregroundColor(Color.green)
                                             .font(.footnote)
@@ -60,7 +60,7 @@ struct TwitterLargeView : View {
                                         Text("\(Int(twitter.retweetCount).abbreviated)")
                                             .font(.footnote)
                                     }
-                                    HStack(spacing: 2) {
+                                    HStack(spacing: 1) {
                                         Image(systemName: "heart.fill")
                                             .foregroundColor(Color.red)
                                             .font(.footnote)

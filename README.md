@@ -1,7 +1,6 @@
+# Twitter SwiftUI <img src="https://cdn.cms-twdigitalassets.com/content/dam/developer-twitter/images/Twitter_logo_blue_48.png" width=48 align=right>
 
-<p align="center"><img src="https://cdn.cms-twdigitalassets.com/content/dam/developer-twitter/images/Twitter_logo_blue_48.png"/></p>
-<h2 align="center">Twitter SwiftUI</h1>
-<h4 align="center">Most recent Tweets, Retweets, replies, and Quote Tweets, similar to what may be seen on a user's profile timeline</h2>
+Most recent Tweets, Retweets, replies, and Quote Tweets, similar to what may be seen on a user's profile timeline.
 
 ![](Images/1.png)
 ![](Images/2.png)
